@@ -1,30 +1,27 @@
 options:
   logging: NONE
 steps:
-# Secret Manager から環境変数を取得するステップ
-- name: 'gcr.io/cloud-builders/gcloud'
-  id: 'fetch-secret'
-  entrypoint: 'bash'
-  args:
-    - '-c'
-    - |
-      gcloud secrets versions access latest --secret="OpenAI-API-key-betterChatGpt" > /workspace/openai_api_key.txt
-  volumes:
-    - name: 'vol'
-      path: '/workspace'
+  # Secret Manager から環境変数を取得するステップ
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'fetch-secret'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - 'echo -n $$_VITE_OPENAI_API_KEY > /env/VITE_OPENAI_API_KEY'
 
-# Docker イメージをビルドするステップ
-- name: 'gcr.io/cloud-builders/docker'
-  id: 'build'
-  args:
-    - 'build'
-    - '--build-arg'
-    - 'VITE_OPENAI_API_KEY=$(cat /workspace/openai_api_key.txt)'
-    - '-t'
-    - 'gcr.io/$PROJECT_ID/my-app'
-    - '.'
-  volumes:
-    - name: 'vol'
-      path: '/workspace'
+  # Docker イメージをビルドするステップ
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'build'
+    args:
+      - 'build'
+      - '--build-arg'
+      - 'VITE_OPENAI_API_KEY=$(cat /env/VITE_OPENAI_API_KEY)'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/my-app'
+      - '.'
+
+# ビルドしたイメージの GCR への登録
 images:
   - 'gcr.io/$PROJECT_ID/my-app'
+substitutions:
+  _VITE_OPENAI_API_KEY: 'projects/268967476754/secrets/OpenAI-API-key-betterChatGpt/versions/latest'
