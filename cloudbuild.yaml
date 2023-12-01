@@ -1,3 +1,5 @@
+options:
+  logging: NONE
 steps:
 # Secret Manager から環境変数を取得するステップ
 - name: 'gcr.io/cloud-builders/gcloud'
