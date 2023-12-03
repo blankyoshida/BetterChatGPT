@@ -27,12 +27,13 @@ export const getChatCompletion = async (
     const model = config.model;
 
     // set api version to 2023-07-01-preview for gpt-4 and gpt-4-32k, otherwise use 2023-03-15-preview
-    const apiVersion =
-      model === 'gpt-4' || model === 'gpt-4-32k'
+    const apiVersion = '';
+    // not use my repo
+    /*  model === 'gpt-4' || model === 'gpt-4-32k'
         ? '2023-07-01-preview'
         : '2023-03-15-preview';
 
-    const path = `openai/deployments/${model}/chat/completions?api-version=${apiVersion}`;
+    const path = `openai/deployments/${model}/chat/completions?api-version=${apiVersion}`;*/
 
     if (!endpoint.endsWith(path)) {
       if (!endpoint.endsWith('/')) {
@@ -82,11 +83,13 @@ export const getChatCompletionStream = async (
     const model = config.model;
 
     // set api version to 2023-07-01-preview for gpt-4 and gpt-4-32k, otherwise use 2023-03-15-preview
-    const apiVersion =
-      model === 'gpt-4' || model === 'gpt-4-32k'
+    const apiVersion = '';
+    // not use my repo
+    /*  model === 'gpt-4' || model === 'gpt-4-32k'
         ? '2023-07-01-preview'
         : '2023-03-15-preview';
-    const path = `openai/deployments/${model}/chat/completions?api-version=${apiVersion}`;
+
+    const path = `openai/deployments/${model}/chat/completions?api-version=${apiVersion}`;*/
 
     if (!endpoint.endsWith(path)) {
       if (!endpoint.endsWith('/')) {
