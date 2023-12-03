@@ -1,5 +1,7 @@
 FROM node:alpine
 ARG VITE_OPENAI_API_KEY
+ENV VITE_OPENAI_API_KEY=$VITE_OPENAI_API_KEY
+
 RUN addgroup -S appgroup && \
   adduser -S appuser -G appgroup && \
   mkdir -p /home/appuser/app && \
@@ -12,9 +14,6 @@ RUN yarn config set prefix ~/.yarn && \
 WORKDIR /home/appuser/app
 COPY --chown=appuser:appgroup package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
-
-RUN echo "VITE_OPENAI_API_KEY=${VITE_OPENAI_API_KEY}" > .env
-
 COPY --chown=appuser:appgroup . .
 RUN yarn build
 
