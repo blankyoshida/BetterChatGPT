@@ -1,6 +1,6 @@
 FROM node:alpine
-ARG VITE_OPENAI_API_KEY
-ENV VITE_OPENAI_API_KEY=$VITE_OPENAI_API_KEY
+#ARG VITE_OPENAI_API_KEY
+#ENV VITE_OPENAI_API_KEY=$VITE_OPENAI_API_KEY
 
 RUN addgroup -S appgroup && \
   adduser -S appuser -G appgroup && \
