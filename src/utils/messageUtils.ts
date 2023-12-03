@@ -21,7 +21,8 @@ export const getChatGPTEncoding = (
   messages: MessageInterface[],
   model: ModelOptions
 ) => {
-  const isGpt3 = model === 'gpt-3.5-turbo';
+  //const isGpt3 = model === 'gpt-3.5-turbo';
+  const isGpt3 = model === 'gpt-3.5-turbo-1106';
 
   const msgSep = isGpt3 ? '\n' : '';
   const roleSep = isGpt3 ? '\n' : '<|im_sep|>';
