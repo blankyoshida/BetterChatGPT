@@ -35,7 +35,7 @@ export const modelMaxToken = {
   //'gpt-3.5-turbo-0613': 4096,
   //'gpt-3.5-turbo-16k': 16384,
   //'gpt-3.5-turbo-16k-0613': 16384,
-  'gpt-3.5-turbo-1106': 100,
+  'gpt-3.5-turbo-1106': 10000,
   //'gpt-4': 8192,
   //'gpt-4-0314': 8192,
   //'gpt-4-0613': 8192,
