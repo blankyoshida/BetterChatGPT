@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  betterchatgpt:
+    build: .
+    ports:
+      - "4000:3000"
+    restart: unless-stopped
