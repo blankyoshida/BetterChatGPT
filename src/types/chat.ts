@@ -49,7 +49,7 @@ export interface Folder {
   color?: string;
 }
 
-export type ModelOptions =  'gpt-4-1106-preview' | 'gpt-3.5-turbo-1106' | 'gpt-4-turbo' | 'gpt-4o' ;
+export type ModelOptions =  'gpt-3.5-turbo-1106' | 'gpt-4-turbo' | 'gpt-4o' ;
 
 export type TotalTokenUsed = {
   [model in ModelOptions]?: {
