@@ -46,7 +46,7 @@ const CommandPrompt = ({
         aria-label='prompt library'
         onClick={() => setDropDown(!dropDown)}
       >
-        /
+      Promptlibrary
       </button>
       <div
         className={`${
