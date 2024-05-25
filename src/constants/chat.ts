@@ -16,7 +16,7 @@ export const _defaultSystemMessage =
   `You are ChatGPT, a large language model trained by OpenAI.Carefully heed the user's instructions.Respond using Markdown.Use Japanese unless otherwise instructed.`;
 
   export const modelOptions: ModelOptions[] = [
-    'gpt-3.5-turbo-1106',
+    'gpt-3.5-turbo',
     'gpt-4-turbo',
     'gpt-4o'
   ];
@@ -24,13 +24,13 @@ export const _defaultSystemMessage =
   export const defaultModel = 'gpt-4o';
   
   export const modelMaxToken = {
-    'gpt-3.5-turbo-1106': 10000,
+    'gpt-3.5-turbo': 10000,
     'gpt-4-turbo': 128000,
     'gpt-4o': 128000,
   };
   
   export const modelCost = {
-    'gpt-3.5-turbo-1106': {
+    'gpt-3.5-turbo': {
       prompt: { price: 0.001, unit: 1000 },
       completion: { price: 0.0015, unit: 1000 },
     },
@@ -44,7 +44,7 @@ export const _defaultSystemMessage =
     },
   };
 
-export const defaultUserMaxToken = 4000;
+export const defaultUserMaxToken = 10000;
 
 export const _defaultChatConfig: ConfigInterface = {
   model: defaultModel,

@@ -17,25 +17,9 @@ export const getChatCompletion = async (
 
   if (isAzureEndpoint(endpoint) && apiKey) {
     headers['api-key'] = apiKey;
-
-    /*const modelmapping: Partial<Record<ModelOptions, string>> = {
-      'gpt-3.5-turbo': 'gpt-35-turbo',
-      'gpt-3.5-turbo-16k': 'gpt-35-turbo-16k',
-    };*/
-
-    //const model = modelmapping[config.model] || config.model;
     const model = config.model;
-
-    // set api version to 2023-07-01-preview for gpt-4 and gpt-4-32k, otherwise use 2023-03-15-preview
     const apiVersion = '';
-    // not use my repo
-    /*  model === 'gpt-4' || model === 'gpt-4-32k'
-        ? '2023-07-01-preview'
-        : '2023-03-15-preview';
-        
-        const path = `openai/deployments/${model}/chat/completions?api-version=${apiVersion}`;*/
-        const path = ``;
-
+    const path = ``;
     if (!endpoint.endsWith(path)) {
       if (!endpoint.endsWith('/')) {
         endpoint += '/';
@@ -74,23 +58,8 @@ export const getChatCompletionStream = async (
 
   if (isAzureEndpoint(endpoint) && apiKey) {
     headers['api-key'] = apiKey;
-
-    /*const modelmapping: Partial<Record<ModelOptions, string>> = {
-      'gpt-3.5-turbo': 'gpt-35-turbo',
-      'gpt-3.5-turbo-16k': 'gpt-35-turbo-16k',
-    };*/
-
-    //const model = modelmapping[config.model] || config.model;
     const model = config.model;
-
-    // set api version to 2023-07-01-preview for gpt-4 and gpt-4-32k, otherwise use 2023-03-15-preview
     const apiVersion = '';
-    // not use my repo
-    /*  model === 'gpt-4' || model === 'gpt-4-32k'
-        ? '2023-07-01-preview'
-        : '2023-03-15-preview';
-
-    const path = `openai/deployments/${model}/chat/completions?api-version=${apiVersion}`;*/
     const path = ``;
 
     if (!endpoint.endsWith(path)) {

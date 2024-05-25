@@ -1,7 +1,7 @@
-version: '3.8'
 services:
-  betterchatgpt:
+  app:
+    container_name: betterchatgpt-honbu
     build: .
     ports:
-      - "4000:3000"
+      - "3000:3000"
     restart: unless-stopped
